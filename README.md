@@ -60,7 +60,7 @@ curl http://localhost:7071/api-gateway/dev
 Commit and push a change, then broadcast it over Spring Cloud Bus (RabbitMQ):
 
 ```
-curl -X POST http://localhost:7071/actuator/bus-refresh
+curl -X POST http://localhost:7071/actuator/busrefresh
 ```
 
 Every connected service re-reads this repository. Beans that should pick up new values
@@ -71,7 +71,7 @@ need `@RefreshScope`.
 With the config server running:
 
 ```
-curl -X POST --data-urlencode "mysecret" http://localhost:7071/encrypt
+curl -X POST --data-raw 'mysecret' http://localhost:7071/encrypt
 ```
 
 Paste the result into a property file as `some.key={cipher}AQB1c...`.
